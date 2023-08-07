@@ -21,6 +21,7 @@ afterEach(() => {
 it("renders the data", async () => {
   jest.spyOn(global, "fetch").mockImplementation(() =>
     Promise.resolve({
+      ok: true,
       json: () => Promise.resolve(testOrder)
     })
   );

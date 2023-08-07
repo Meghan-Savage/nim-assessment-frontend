@@ -6,6 +6,8 @@ import OrderConfirmation from "./OrderConfirmation";
 function ConfirmationPage() {
   const { id } = useParams();
   const [order, setOrder] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchOrder = async (orderId) => {
     try {
@@ -17,8 +19,10 @@ function ConfirmationPage() {
       }
       const data = await response.json();
       setOrder(data);
-    } catch (error) {
-      throw new Error(error);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -26,9 +30,17 @@ function ConfirmationPage() {
     fetchOrder(id);
   }, [id]);
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
   return (
     <div className={styles["confirmation-page"]}>
-      {order ? <OrderConfirmation order={order} /> : <p>Loading...</p>}
+      <OrderConfirmation order={order} />
     </div>
   );
 }

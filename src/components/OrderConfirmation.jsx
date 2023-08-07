@@ -19,7 +19,7 @@ function OrderConfirmation({ order }) {
         <strong>Items Ordered:</strong>
         <ul>
           {items.map((item) => (
-            <li key={item.id}>
+            <li key={`${item.id}-${Math.random()}`}>
               <strong>Name:</strong> {item.item.name}
               <br />
               <strong>Quantity:</strong> {item.quantity}
