@@ -1,0 +1,34 @@
+.order-confirmation {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+.consumer-details {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .order-confirmation h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .order-confirmation strong {
+    margin-right: 5px;
+  }
+  
+  .order-confirmation ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .order-confirmation li {
+    margin-bottom: 5px;
+  }
+
+  .order-id-container {
+   display: flex;
+   justify-content: end
+  }
